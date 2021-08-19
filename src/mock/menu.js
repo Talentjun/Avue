@@ -67,6 +67,12 @@ const first = [{
   icon: 'icon-caidan',
   children: []
 },{
+  label: "首页",
+  path: '/home',
+  component: 'views/home',
+  icon: 'icon-caidan',
+  children: []
+},{
   label: "yj",
   path: '/yj',
   component: 'views/yj/index',
