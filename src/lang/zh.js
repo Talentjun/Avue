@@ -71,7 +71,8 @@ export default {
     cache: '页面缓冲',
     error: '异常页面',
     test: '测试页面',
-    yj:'我的页面',
+    yj: '我的页面',
+    multipleCom: '多层组件'
   },
   login: {
     title: '登录 ',

@@ -4,7 +4,8 @@
       <div
         v-for="item in num"
         :key="item.count"
-        :class="`content-box item${item.count}`"
+        :ref="`item${item.count}`"
+        class="content-box"
       >
         {{ item.name }}
       </div>
@@ -74,9 +75,11 @@ export default {
   },
   methods: {
     go(count) {
-      this.count = count
-      document.querySelector('#avue-view').scrollTop =
-        document.querySelector(`.item${count}`).offsetTop - 50
+      this.$nextTick(() => {
+        this.count = count
+        document.querySelector('#avue-view').scrollTop =
+          this.$refs[`item${count}`][0].offsetTop - 50
+      })
     },
   },
 }
