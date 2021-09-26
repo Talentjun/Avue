@@ -117,6 +117,7 @@ export default {
     cellMouseLeave() {
       this.curRowArr = []
     },
+    // hover和点击不可得兼
     handleCurrentRowChange(row) {
       this.sameRowArr.map((item) => {
         if (item.indexOf(row.$index) != -1) {
