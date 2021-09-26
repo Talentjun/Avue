@@ -7,6 +7,8 @@
       :span-method="spanMethod"
       :row-class-name="rowClassName"
       @current-row-change="handleCurrentRowChange"
+      @cell-mouse-enter="cellMouseEnter"
+      @cell-mouse-leave="cellMouseLeave"
       ref="crud"
     ></avue-crud>
   </div>
@@ -96,7 +98,7 @@ export default {
       }
     },
     // hover背景颜色变化
-    rowClassName({ row,rowIndex }) {
+    rowClassName({ row, rowIndex }) {
       let temArr = this.curRowArr
       for (let i = 0; i < temArr.length; i++) {
         if (rowIndex == temArr[i]) {
@@ -104,6 +106,16 @@ export default {
           return 'row_class'
         }
       }
+    },
+    cellMouseEnter(row) {
+      this.sameRowArr.map((item) => {
+        if (item.indexOf(row.$index) != -1) {
+          this.curRowArr = item
+        }
+      })
+    },
+    cellMouseLeave() {
+      this.curRowArr = []
     },
     handleCurrentRowChange(row) {
       this.sameRowArr.map((item) => {
@@ -119,7 +131,7 @@ export default {
 
 <style lang="scss" scoped>
 ::v-deep .row_class > td {
-  background: rgba(129, 211, 248, 1) !important;
+  background-color: #f5f7fa;
 }
 ::v-deep .row_click_class > td {
   background: rgba(110, 211, 248, 1);
