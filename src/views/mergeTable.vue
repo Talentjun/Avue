@@ -135,6 +135,6 @@ export default {
   background-color: #f5f7fa;
 }
 ::v-deep .row_click_class > td {
-  background: rgba(110, 211, 248, 1);
+  background-color: #f5f7fa;
 }
 </style>
