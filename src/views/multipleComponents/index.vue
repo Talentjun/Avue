@@ -1,7 +1,8 @@
 <template>
-  <div>
-    <son :names="value" age="18" @test="test"></son>
-  </div>
+  <basic-container>
+    title: <el-input v-model="title"></el-input>
+    <son :names="value" age="18" @test="test" :title="title"></son>
+  </basic-container>
 </template>
 
 <script>
@@ -14,6 +15,7 @@ export default {
   data() {
     return {
       value: 'yj',
+      title: 'Talent',
     }
   },
   methods: {
